@@ -1,0 +1,70 @@
+.primary-btn {
+    width:160px;
+    height: 55px;
+    background-color: #2468ae; 
+    border: 0;
+    border-radius: 5px;
+    color: white;
+}
+
+.code-container {
+    width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    height: 342px;
+}
+
+pre {
+    margin: 0;
+    border-radius: 10px;
+    height: 300px;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    gap: 20px;              
+    margin: 30px auto;
+    max-width: 80%;       
+    height: 342px;
+}
+.arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+}
+h1 {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 45px;
+}
+h2 {
+    color: white;
+    font-family: "Open Sans", sans-serif;
+    font-size: 30px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+.dropdown-toggle::after {
+    display: none !important;
+}
+
+.nav-tabs .nav-link {
+    color: white; 
+}
+
+.nav-tabs .nav-link:hover {
+    color: #e6e6e6;
+}
+
+.nav-tabs .nav-link.active {
+    color: white;
+    background-color: #212529;
+    border-color: white white transparent;
+}

@@ -16,68 +16,8 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-        <style>
-            .primary-btn {
-                width:160px;
-                height: 55px;
-                background-color: #2468ae; 
-                border: 0;
-                border-radius: 5px;
-                color: white;
-            }
-        </style>
-        <style>
-            .code-container {
-                width: 700px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0,0,0,0.3);
-                height: 300px;
-            }
 
-            pre {
-                margin: 0;
-                border-radius: 10px;
-                height: 300px;
-            }
-
-            .content-wrapper {
-                display: flex;
-                justify-content: center; /* center horizontally */
-                align-items: center;     /* center vertically */
-                gap: 20px;               /* space between code and image */
-                margin: 30px auto;
-                max-width: 80%;        /* optional max width */
-                height: 300px;
-            }
-            .arrow-container {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                /* fix width and height */
-                width: 40px;
-                height: 100%;  /* full height of .content-wrapper */
-            }
-            h1 {
-                color: white;
-                font-family: "Open Sans", sans-serif;
-                font-size: 45px;
-            }
-            h2 {
-                color: white;
-                font-family: "Open Sans", sans-serif;
-                font-size: 30px;
-            }
-        </style>
-        <style>
-        /* Show dropdown on hover */
-        .dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0; /* optional: align nicely */
-        }
-        .dropdown-toggle::after {
-  display: none !important;
-}
-        </style>
+        <link href="index.css" rel="stylesheet">
     </head>
     <body style="width: 100vw;height: 100vh;background-color: #212529">
         <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2468ae; padding-top:11px; padding-bottom:15px;">
@@ -150,7 +90,20 @@
 
         <div class="content-wrapper" style="margin-top:75px;">
             <div class="code-container" id="code">
-                <pre class="language-python"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+            <div class="tab-container">
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">ATLAS xAOD</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">NTuples</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">CMS nanoAOD</a>
+                </li>
+            </ul>
+            </div>
+            <pre class="language-python"><code style="padding-top: 0;padding-bottom:0;height:300px;">
 query = FuncADLQueryPHYSLITE()
 jets_per_event = (query
     .Select(lambda e: e.Jets().Where(lambda j: (j.pt() / 1000 > 30)))

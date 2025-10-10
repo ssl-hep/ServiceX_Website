@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Welcome to ServiceX</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+        <!-- and it's easy to individually load additional languages -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+        <script>hljs.highlightAll();</script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+        <style>
+            .primary-btn {
+                width:160px;
+                height: 55px;
+                background-color: #2468ae; 
+                border: 0;
+                border-radius: 5px;
+                color: white;
+            }
+        </style>
+        <style>
+            .code-container {
+                width: 700px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                height: 300px;
+            }
+
+            pre {
+                margin: 0;
+                border-radius: 10px;
+                height: 300px;
+            }
+
+            .content-wrapper {
+                display: flex;
+                justify-content: center; /* center horizontally */
+                align-items: center;     /* center vertically */
+                gap: 20px;               /* space between code and image */
+                margin: 30px auto;
+                max-width: 80%;        /* optional max width */
+                height: 300px;
+            }
+            .arrow-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                /* fix width and height */
+                width: 40px;
+                height: 100%;  /* full height of .content-wrapper */
+            }
+            h1 {
+                color: white;
+                font-family: "Open Sans", sans-serif;
+                font-size: 45px;
+            }
+            h2 {
+                color: white;
+                font-family: "Open Sans", sans-serif;
+                font-size: 30px;
+            }
+        </style>
+    </head>
+    <body style="width: 100vw;height: 100vh;background-color: #212529">
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2468ae;padding-top:11px;padding-bottom:15px;">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="padding: 0">
+                    <img src="logo_servicex.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+                    <span style="font-size:26px;line-height:1;position: relative;top: 10px;">ServiceX</h1>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav> 
+
+        <center>
+            <h1 style="margin-top: 75px;">Accelerate Your Data Analysis with ServiceX</h1>
+            <h2 style="margin-top: 20px;">Streamlined data access for faster,<br> more efficient analysis.</h2>
+        </center>
+
+        <div class="content-wrapper" style="margin-top:75px;">
+            <div class="code-container" id="code">
+                <pre class="language-python"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+query = FuncADLQueryPHYSLITE()
+jets_per_event = (query
+    .Select(lambda e: e.Jets().Where(lambda j: (j.pt() / 1000 > 30)))
+    .Select(lambda jets: {
+        'pt': jets.Select(lambda j: j.pt() / 1000),
+        'eta': jets.Select(lambda j: j.eta()),
+        'phi': jets.Select(lambda j: j.phi()),
+    })
+)
+
+jet_data = get_data(jets_per_event, dataset)
+plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
+                </code></pre>
+            </div>
+            <div class="arrow-container" aria-hidden="true">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                <line x1="0" y1="12" x2="18" y2="12"></line>
+                <polyline points="12 6 18 12 12 18"></polyline>
+                </svg>
+            </div>
+            <img src="where.png" style="height: 100%;border-radius: 8px;">
+        </div>
+        
+        <center>
+            <div style="margin-top: 75px;">
+                <button type="button" class="primary-btn">Why ServiceX</button>
+                <button type="button" class="primary-btn" style="margin-left: 25px">For ATLAS</button>
+                <button type="button" class="primary-btn" style="margin-left: 25px">For CMS</button>
+            </div>   
+        </center>
+    </body>
+</html>

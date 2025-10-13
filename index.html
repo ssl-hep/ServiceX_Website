@@ -20,6 +20,38 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
         <link href="index.css" rel="stylesheet">
+
+        <script>
+
+            function showxAOD() {
+                $('#xAOD-example').css("display", "block");
+                $('#ntuple-example').css("display", "none");
+                $('#nanoAOD-example').css("display", "none");
+                $('#xAOD-label').addClass("active");
+                $('#ntuple-label').removeClass("active");
+                $('#nanoAOD-label').removeClass("active");
+            }
+
+            function showNTuple() {
+                $('#xAOD-example').css("display", "none");
+                $('#ntuple-example').css("display", "block");
+                $('#nanoAOD-example').css("display", "none");
+                $('#xAOD-label').removeClass("active");
+                $('#ntuple-label').addClass("active");
+                $('#nanoAOD-label').removeClass("active");
+            }
+
+            function showNanoAOD() {
+                $('#xAOD-example').css("display", "none");
+                $('#ntuple-example').css("display", "none");
+                $('#nanoAOD-example').css("display", "block");
+                $('#xAOD-label').removeClass("active");
+                $('#ntuple-label').removeClass("active");
+                $('#nanoAOD-label').addClass("active");
+            }
+
+        </script>
+
     </head>
     <body>
         <nav class="sx-nav navbar navbar-expand-lg navbar-dark">
@@ -92,20 +124,31 @@
 
         <div class="content-wrapper" style="margin-top:75px;">
             <div class="code-container" id="code">
-            <div class="tab-container">
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">ATLAS xAOD</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">NTuples</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">CMS nanoAOD</a>
-                </li>
-            </ul>
-            </div>
-            <pre class="language-python"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+                <div class="tab-container">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" onclick="showNTuple()" id="ntuple-label">NTuples</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" onclick="showxAOD()" id="xAOD-label">ATLAS xAOD</a>
+                        </li>
+                    </ul>
+                </div>
+                <pre class="language-python" id="ntuple-example"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+uproot_raw_query = query.UprootRaw([{
+    'treename':'reco',
+    'filter_name':
+      [ "truth_alp_decayVtxX",
+        "truth_alp_decayVtxY",
+        "truth_alp_pt",
+        "truth_alp_eta",
+        "jet_EMFrac_NOSYS", 
+        "jet_pt_NOSYS" ],
+    'cut':
+        '(num(jet_pt_NOSYS)<2) & any((truth_alp_pt>20) & (abs(truth_alp_eta)<0.8))'}])
+        
+                </code></pre>
+                <pre class="language-python" id="xAOD-example" style="display:none;"><code style="padding-top: 0;padding-bottom:0;height:300px;">
 query = FuncADLQueryPHYSLITE()
 jets_per_event = (query
     .Select(lambda e: e.Jets().Where(lambda j: (j.pt() / 1000 > 30)))
@@ -131,9 +174,7 @@ plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
         
         <center>
             <div style="margin-top: 75px;">
-                <button type="button" class="primary-btn">Why ServiceX</button>
-                <button type="button" class="primary-btn" style="margin-left: 25px">For ATLAS</button>
-                <button type="button" class="primary-btn" style="margin-left: 25px">For CMS</button>
+                <button type="button" class="primary-btn" style="margin-left: 25px">Get Started</button>
             </div>   
         </center>
     </body>

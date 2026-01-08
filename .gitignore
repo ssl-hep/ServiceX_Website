@@ -1,0 +1,3 @@
+build/*
+.venv
+15minhist/build/

@@ -11,6 +11,11 @@ body {
     width: 100vw;
 }
 
+.nav-link {
+    padding-top: 13px; 
+    font-size:20px;
+}
+
 .sx-nav {
     padding-top:11px;
     padding-bottom:15px;

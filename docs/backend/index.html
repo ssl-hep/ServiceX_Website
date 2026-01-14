@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Welcome to ServiceX</title>
+         <script>
+            fetch('/navbar.html')
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+            });
+        </script>
+    </head>
+    <body> 
+        <iframe src="https://servicex.readthedocs.io/en/latest/" title="ServiceX Backend Documentation">
+            <a href="https://servicex.readthedocs.io/en/latest/">Your browser does not support iframes. Please click this link to go to the documentation direclty.</a>
+        </iframe>
+        <div id="navbar"></div>
+    </body>
+</html>

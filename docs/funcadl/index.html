@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Welcome to ServiceX</title>
+        <script>
+            fetch('/navbar.html')
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+            });
+        </script>
+    </head>
+    <body>
+        <iframe src="https://iris-hep.org/func_adl/" title="FuncADL Documentation.">
+            <a href="https://iris-hep.org/func_adl/">Your browser does not support iframes. Please click this link to go directly to the docs.</a>
+        </iframe>
+        <div id="navbar"></div>
+    </body>
+</html>

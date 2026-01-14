@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Welcome to ServiceX</title>
+        <script>
+            fetch('/navbar.html')
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+            });
+        </script>
+    </head>
+    <body>
+        <iframe src="/15minhist/build/html/index.html" title="15 Minute Histogram Tutorial Website.">
+            <a href="/15minhist/build/html/index.html">Your browser does not support iframes. Please click this link to go to the documentation directly.</a>
+        </iframe>
+        <div id="navbar"></div>
+    </body>
+</html>

@@ -57,6 +57,13 @@ pre {
     height: 300px;
 }
 
+iframe {
+    position: fixed;
+    top: 76px;
+    width: 100vw;
+    height: calc(100vh - 76px);
+}
+
 .arrow-container {
     display: flex;
     align-items: center;

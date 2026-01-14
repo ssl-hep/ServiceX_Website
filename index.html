@@ -2,6 +2,7 @@
 <html lang="en">
     <head>
         <title>Welcome to ServiceX</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
@@ -12,8 +13,8 @@
                 .then(res => res.text())
                 .then(html => {
                 document.getElementById('navbar').innerHTML = html;
-                });
-
+                });     
+                
             function showxAOD() {
                 $('#xAOD-example').css("display", "block");
                 $('#ntuple-example').css("display", "none");
@@ -31,18 +32,7 @@
                 $('#ntuple-label').addClass("active");
                 $('#nanoAOD-label').removeClass("active");
             }
-
-            function showNanoAOD() {
-                $('#xAOD-example').css("display", "none");
-                $('#ntuple-example').css("display", "none");
-                $('#nanoAOD-example').css("display", "block");
-                $('#xAOD-label').removeClass("active");
-                $('#ntuple-label').removeClass("active");
-                $('#nanoAOD-label').addClass("active");
-            }
-
         </script>
-
     </head>
     <body>
         <div id="content" style="position:relative;top:76px;">

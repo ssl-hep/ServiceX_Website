@@ -1,27 +1,18 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Welcome to ServiceX</title>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
         <script>hljs.highlightAll();</script>
-
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-
-        <link href="index.css" rel="stylesheet">
-
         <script>
+            fetch('/navbar.html')
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+                });
 
             function showxAOD() {
                 $('#xAOD-example').css("display", "block");
@@ -54,33 +45,25 @@
 
     </head>
     <body>
-        <script>
-            fetch('navbar.html')
-                .then(res => res.text())
-                .then(html => {
-                document.getElementById('navbar').innerHTML = html;
-                });
-        </script>
-        <div id="navbar"></div>
+        <div id="content" style="position:relative;top:76px;">
+            <center>
+                <h1 style="margin-top: 5vh;">Accelerate Your Data Analysis with ServiceX</h1>
+                <h2 style="margin-top: 4vh;">Streamlined data access for faster,<br> more efficient analysis.</h2>
+            </center>
 
-        <center>
-            <h1 style="margin-top: 75px;">Accelerate Your Data Analysis with ServiceX</h1>
-            <h2 style="margin-top: 20px;">Streamlined data access for faster,<br> more efficient analysis.</h2>
-        </center>
-
-        <div class="content-wrapper" style="margin-top:75px;">
-            <div class="code-container" id="code">
-                <div class="tab-container">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <a class="nav-link active" onclick="showNTuple()" id="ntuple-label">NTuples</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" onclick="showxAOD()" id="xAOD-label">ATLAS xAOD</a>
-                        </li>
-                    </ul>
-                </div>
-                <pre class="language-python" id="ntuple-example"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+            <div class="content-wrapper" style="margin-top:4vh;">
+                <div class="code-container" id="code">
+                    <div class="tab-container">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="showNTuple()" id="ntuple-label">NTuples</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="showxAOD()" id="xAOD-label">ATLAS xAOD</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <pre class="language-python" id="ntuple-example"><code class="code">
 uproot_raw_query = query.UprootRaw([{
     'treename':'reco',
     'filter_name':
@@ -92,9 +75,8 @@ uproot_raw_query = query.UprootRaw([{
         "jet_pt_NOSYS" ],
     'cut':
         '(num(jet_pt_NOSYS)<2) & any((truth_alp_pt>20) & (abs(truth_alp_eta)<0.8))'}])
-        
-                </code></pre>
-                <pre class="language-python" id="xAOD-example" style="display:none;"><code style="padding-top: 0;padding-bottom:0;height:300px;">
+                    </code></pre>
+                <pre class="language-python" id="xAOD-example" style="display:none;"><code class="code">
 query = FuncADLQueryPHYSLITE()
 jets_per_event = (query
     .Select(lambda e: e.Jets().Where(lambda j: (j.pt() / 1000 > 30)))
@@ -107,23 +89,25 @@ jets_per_event = (query
 
 jet_data = get_data(jets_per_event, dataset)
 plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
-                </code></pre>
+                    </code></pre>
+                </div>
+                <div class="arrow-container" aria-hidden="true">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+                    <line x1="0" y1="12" x2="18" y2="12"></line>
+                    <polyline points="12 6 18 12 12 18"></polyline>
+                    </svg>
+                </div>
+                <img src="/img/where.png" style="height: 100%;border-radius: 8px;">
             </div>
-            <div class="arrow-container" aria-hidden="true">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
-                <line x1="0" y1="12" x2="18" y2="12"></line>
-                <polyline points="12 6 18 12 12 18"></polyline>
-                </svg>
-            </div>
-            <img src="where.png" style="height: 100%;border-radius: 8px;">
+            
+            <center>
+                <div style="margin-top: 6vh;">
+                    <a href="/docs/challenge/">
+                        <button type="button" class="primary-btn" style="margin-left: 25px">Get Started</button>
+                    </a>
+                </div>   
+            </center>
         </div>
-        
-        <center>
-            <div style="margin-top: 75px;">
-                <a href="challenge.html">
-                    <button type="button" class="primary-btn" style="margin-left: 25px">Get Started</button>
-                </a>
-            </div>   
-        </center>
+        <div id="navbar"></div>
     </body>
 </html>

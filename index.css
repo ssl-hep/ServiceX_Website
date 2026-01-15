@@ -2,7 +2,7 @@ body {
     width: 100vw;
     height: 100vh;
 
-    background-color: #212529
+    overflow-x: hidden;
 }
 
 #navbar {
@@ -34,20 +34,33 @@ h1 {
     width: 80%;
 }
 
-h2 {
+p {
     color: white;
     font-family: "Open Sans", sans-serif;
-    font-size: calc(1.25em + 0.5vw);
+    font-size: calc(1em + 0.5vw);
     width: 70%;
 }
 
 .primary-btn {
-    width:160px;
-    height: 55px;
+    height: 45px;
     background-color: #2468ae; 
+    padding-left: 25px;
+    padding-right:25px;
     border: 0;
-    border-radius: 5px;
+    border-radius: 20px;
     color: white;
+}
+
+.light-wrapper {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-color: #383b3f;
+}
+
+.dark-wrapper {
+    padding-top: 75px;
+    padding-bottom: 75px;
+    background-color: #212529
 }
 
 .content-wrapper {
@@ -63,12 +76,20 @@ h2 {
     width: 38vw;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    overflow-y: hidden;
 }
 
 code {
     padding-top: 0;
     padding-bottom:0;
     height: 37vh;
+    overflow-y: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+code::-webkit-scrollbar {
+  display: none;
 }
 
 pre {
@@ -129,11 +150,13 @@ iframe {
 
     .content-wrapper {
         flex-direction: column;
-        max-width: 70%;
+        width: 95%;
+        max-width: 600px;
     }
 
     .content-wrapper img {
-        width: 80%;
+        width: 95%;
+        max-width: 600px;
     }
 
     .arrow-container svg {

@@ -19,19 +19,21 @@
             function showxAOD() {
                 $('#xAOD-example').css("display", "block");
                 $('#ntuple-example').css("display", "none");
-                $('#nanoAOD-example').css("display", "none");
                 $('#xAOD-label').addClass("active");
                 $('#ntuple-label').removeClass("active");
-                $('#nanoAOD-label').removeClass("active");
+
+                $('#img-xaod').css("display","block");
+                $('#img-ntuple').css("display","none");
             }
 
             function showNTuple() {
                 $('#xAOD-example').css("display", "none");
                 $('#ntuple-example').css("display", "block");
-                $('#nanoAOD-example').css("display", "none");
                 $('#xAOD-label').removeClass("active");
                 $('#ntuple-label').addClass("active");
-                $('#nanoAOD-label').removeClass("active");
+
+                $('#img-xaod').css("display","none");
+                $('#img-ntuple').css("display","block");
             }
         </script>
     </head>
@@ -69,11 +71,10 @@ uproot_raw_query = query.UprootRaw([{
       [ "truth_alp_decayVtxX",
         "truth_alp_decayVtxY",
         "truth_alp_pt",
-        "truth_alp_eta",
-        "jet_EMFrac_NOSYS", 
         "jet_pt_NOSYS" ],
     'cut':
-        '(num(jet_pt_NOSYS)<2) & any((truth_alp_pt>20) & (abs(truth_alp_eta)<0.8))'}])
+        '(num(jet_pt_NOSYS)<2) & any((truth_alp_pt>20)'
+}])
                     </code></pre>
                 <pre class="language-python" id="xAOD-example" style="display:none;"><code class="code">
 query = FuncADLQueryPHYSLITE()
@@ -81,8 +82,6 @@ jets_per_event = (query
     .Select(lambda e: e.Jets().Where(lambda j: (j.pt() / 1000 > 30)))
     .Select(lambda jets: {
         'pt': jets.Select(lambda j: j.pt() / 1000),
-        'eta': jets.Select(lambda j: j.eta()),
-        'phi': jets.Select(lambda j: j.phi()),
     })
 )
 
@@ -96,7 +95,8 @@ plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
                     <polyline points="12 6 18 12 12 18"></polyline>
                     </svg>
                 </div>
-                <img src="/img/where.png" style="height: 100%;border-radius: 8px;">
+                <img id="img-ntuple" src="/img/ntuple-hist.png" style="height: 100%;border-radius: 8px;">
+                <img id="img-xaod" src="/img/xaod-hist.png" style="height: 100%;border-radius: 8px;display:none;">
             </div>
             <center>
                 <div style="margin-top: 6vh;">

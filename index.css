@@ -11,6 +11,10 @@ body {
     width: 100vw;
 }
 
+.navbar {
+    min-height: 76px;
+}
+
 .nav-link {
     padding-top: 13px; 
     font-size:20px;
@@ -26,14 +30,14 @@ body {
 h1 {
     color: white;
     font-family: "Open Sans", sans-serif;
-    font-size: 45px;
+    font-size: calc(2rem + 1.3vw);
     width: 80%;
 }
 
 h2 {
     color: white;
     font-family: "Open Sans", sans-serif;
-    font-size: 25px;
+    font-size: calc(1.25em + 0.5vw);
     width: 70%;
 }
 
@@ -140,5 +144,9 @@ iframe {
 
     .code-container {
         width: 100%;
+    }
+
+    .text-break {
+        display: none;
     }
 }

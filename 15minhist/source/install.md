@@ -1,6 +1,15 @@
 Install and Initialize ServiceX
 =================================
 
+## Setup Python Virtual Environment
+
+Using a Python virtual environment is recommended to avoid conflicts with existing packages and to keep your ServiceX setup isolated.
+
+If you are unfamiliar with virtual environments, you can learn more in the [Python documentation](https://docs.python.org/3/library/venv.html).
+
+You can also create and manage virtual environments directly in VSCode. Instructions for this can be found in the [VSCode documentation](https://code.visualstudio.com/docs/python/environments).
+
+
 ## Install Required Packages
 
 This tutorial uses two Python packages.

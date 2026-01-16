@@ -19,12 +19,16 @@ from servicex_analysis_utils import to_awk
 
 Before we build our query and spec, we need to specify our dataset. ServiceX supports multiple types of datasets, but all types must be publicly accessible or available to all ATLAS users. More information about supported dataset locations can be found in our full documentation.
 
-TODO: Make this able to use both types of datasets, but also change the language to say we have an option if you don't.
-
 For this tutorial, we’ll use an NTuple stored in Rucio. If you already have an NTuple available in Rucio, you can use it for this tutorial, though the tree and branch names may differ.
 
 ```
 ntuple_dataset = dataset.Rucio("user.acordeir:michigan-tutorial.displaced-signal.root")
+```
+
+If the dataset is located in EOS instead of rucio it can be define like this:
+
+```
+ntuple_dataset = dataset.FileList(["root://eospublic.cern.ch//eos/..."])
 ```
 
 ## Building Our Query
@@ -104,3 +108,7 @@ axes[1].set_ylabel("Counts")
 plt.tight_layout()
 plt.show()
 ```
+
+The result from this code is the following plots:
+
+![Histogram Output From Uproot Example](imgs/example-out-uproot.png)

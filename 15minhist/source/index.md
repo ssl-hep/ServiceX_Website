@@ -19,7 +19,7 @@ It’s a quick, rewarding way to jumpstart your ServiceX experience.
 
 To get the most out of this challenge, make sure you have:
 
-1. **ATLAS Software Tutorials knowledge** – If you haven’t completed them yet, start there first.  
+1. **ATLAS Software Tutorials knowledge** – If you haven’t completed them yet, start with the [software tutorial](https://atlassoftwaredocs.web.cern.ch/analysis-software/AnalysisSWTutorial/) first.  
 2. **Python and a virtual environment** – Installed and ready to go.  
 3. **A dataset for analysis** – Ideally one stored in **Rucio** or **EOS**. If you don’t have one, we’ll provide a sample dataset, but using your own data will make the experience even more valuable.
 

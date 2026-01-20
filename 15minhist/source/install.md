@@ -18,7 +18,7 @@ The first is the ServiceX client, which provides the core functionality needed t
 
 
 ```
-pip install servicex
+pip install servicex==3.3.0b1
 ```
 
 The second package contains a collection of analysis utility functions that simplify common ServiceX workflows and reduce boilerplate code:
@@ -32,14 +32,26 @@ The `servicex-analysis-utils` package is useful well beyond this tutorial and ca
 
 ## Initialize ServiceX
 
-Now that everything is installed you need to connect your client to an Analysis Facility. This step authenticates your environment and sets up access. To do this you can run this command:
+Now that everything is installed, you need to connect your client to an Analysis Facility. This step authenticates your environment and sets up the required access. To begin, run the following command:
 
 ```
-servicex init atlas
+servicex init
 ```
 
-You'll be promted to log in via a provided link. Once authenticated you should see a success message. You can confirm the setup by running:
+Running this command will launch a setup wizard that guides you through configuring your ServiceX client. After selecting your analysis facility, the wizard will provide a link to a sign-in page. On that page, click the Sign in with ATLAS option.
 
+```{image} imgs/setup-login.png
+:width: 300px
+:alt: Sign-in screen
 ```
-servicex init test
+
+After completing the ATLAS sign-in, open the second link provided by the wizard. On this page, click the button to copy your authentication token:
+
+```{image} imgs/setup-token.png
+:width: 300px
+:alt: Token copy button example
 ```
+
+Paste this token into the command line when prompted. The wizard will verify that your client is successfully configured. Once verification is complete, you will be asked to choose a downloads directory. For this tutorial, simply press Enter to accept the default location.
+
+If the setup completes successfully, you will see a message stating Configuration Complete. Once you see this message, you may proceed to the next step.

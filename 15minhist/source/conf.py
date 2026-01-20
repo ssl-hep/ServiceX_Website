@@ -20,6 +20,7 @@ html_short_title = "15min Histogram"
 
 extensions = [
     "myst_parser",
+    "sphinx_copybutton",
 ]
 
 

@@ -37,7 +37,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run Pip
-        run: pip install myst_parser "Sphinx>=7,<9" furo
+        run: pip install myst_parser "Sphinx>=7,<9" furo sphinx_copybutton
       - name: Build Sphinx documentation
         working-directory: ${{ github.workspace }}/15minhist
         run: sphinx-build -b html source build/html

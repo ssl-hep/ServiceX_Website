@@ -18,7 +18,7 @@ The first is the ServiceX client, which provides the core functionality needed t
 
 
 ```
-pip install servicex==3.3.0b1
+pip install servicex
 ```
 
 The second package contains a collection of analysis utility functions that simplify common ServiceX workflows and reduce boilerplate code:

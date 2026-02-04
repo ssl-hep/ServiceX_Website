@@ -30,6 +30,12 @@ pip install servicex-analysis-utils
 
 The `servicex-analysis-utils` package is useful well beyond this tutorial and can be integrated directly into your own analyses. It provides many helper functions that make working with ServiceX more convenient and efficient.
 
+We will also want to install some packages use for the analysis:
+
+```
+pip install awkward matplotlib
+```
+
 ## Initialize ServiceX
 
 Now that everything is installed, you need to connect your client to an Analysis Facility. This step authenticates your environment and sets up the required access. To begin, run the following command:

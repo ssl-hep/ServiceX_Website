@@ -7,6 +7,9 @@ To create our query and send it to the backend, we need a few functions and clas
 
 ```
 from servicex import deliver, query, dataset
+
+import awkward as ak
+import matplotlib.pyplot as plt
 ```
 
 The dataset and query objects are used to define our request and are then packaged into a spec. The deliver function sends the spec to the backend. We also import one of our analysis utilities, to_awk, which processes the data returned from ServiceX.
@@ -95,13 +98,13 @@ fig, axes = plt.subplots(1, 2, figsize=(9, 4))
 
 # EM fraction
 axes[0].hist(emfrac, bins=50, range=[0,1] )
-axes[0].set_title(f"{name}: Jet EM Fraction")
+axes[0].set_title(15 Minute Challenge: Jet EM Fraction")
 axes[0].set_xlabel("EM Fraction")
 axes[0].set_ylabel("Counts")
 
 # displacement
 axes[1].hist(disp, bins=50, range=[0,5000], color="g")
-axes[1].set_title(f"{name}: Decay Vertex Displacement")
+axes[1].set_title(15 Minute Challenge: Decay Vertex Displacement")
 axes[1].set_xlabel("Displacement in x-y (mm)")
 axes[1].set_ylabel("Counts")
 

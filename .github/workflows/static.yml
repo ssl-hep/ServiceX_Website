@@ -42,29 +42,13 @@ jobs:
         working-directory: ${{ github.workspace }}/15minhist
         run: sphinx-build -b html source build/html
       
-      - name: Checkout secondary docs repo
-        uses: actions/checkout@v4
-        with:
-          repository: ssl-hep/ServiceX_frontend
-          path: client
-      - name: Build secondary Sphinx documentation
-        working-directory: client
-        run: sphinx-build -b html source build/html
-
-      - name: Assemble site
-        run: |
-          mkdir -p site
-          cp -r 15minhist/build/html/* site/
-          mkdir -p site/client
-          cp -r client/build/html/* site/client/
-      
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: 'site'
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

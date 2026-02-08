@@ -1,0 +1,17 @@
+{% extends "!page.html" %}
+
+{% block body %}
+<script>
+  fetch('https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/navbar.html')
+                .then(res => res.text())
+                .then(html => {
+                document.getElementById('navbar').innerHTML = html;
+                });   
+</script>
+
+<div id="navbar"></div>
+
+<div class="furo-content-wrapper">
+  {{ super() }}
+</div>
+{% endblock %}

@@ -5,6 +5,28 @@ body {
     overflow-x: hidden;
 }
 
+#navbar {
+    position:fixed; 
+    top: 0;
+    width: 100vw;
+}
+
+.navbar {
+    min-height: 76px;
+}
+
+.nav-link {
+    padding-top: 13px; 
+    font-size:20px;
+}
+
+.sx-nav {
+    padding-top:11px;
+    padding-bottom:15px;
+
+    background-color: #2468ae;
+}
+
 h1 {
     color: white;
     font-family: "Open Sans", sans-serif;

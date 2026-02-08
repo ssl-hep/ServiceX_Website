@@ -37,7 +37,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run Pip
-        run: pip install myst_parser "Sphinx>=7,<9" furo sphinx_copybutton
+        run: pip install "Sphinx>=7.0.1,<9" furo>=2023.5.20 sphinx-copybutton>=0.5.2 myst-parser>=3.0.1 sphinx-code-include>=1.4.0 func-adl-servicex-xaodr22 autodoc-pydantic==2.2.0 sphinx-tabs>=3.4.5 enum-tools[sphinx]>=0.12.0 servicex
       - name: Build Sphinx documentation
         working-directory: ${{ github.workspace }}/15minhist
         run: sphinx-build -b html source build/html
@@ -47,23 +47,25 @@ jobs:
         with:
           repository: ssl-hep/ServiceX_frontend
           path: client
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Build secondary Sphinx documentation
-        working-directory: client
-        run: sphinx-build -b html source build/html
+        working-directory: client/docs
+        run: sphinx-build -b html ./ build/html
 
       - name: Assemble site
         run: |
           mkdir -p site
-          cp -r 15minhist/build/html/* site/
-          mkdir -p site/client
-          cp -r client/build/html/* site/client/
+          mkdir -p site/challenge/
+          cp -r 15minhist/build/html/* site/challenge/
+          cp -r ./ site/
+          mkdir -p site/guide
+          cp -r client/docs/build/html/* site/guide/
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: 'site'
       - name: Deploy to GitHub Pages
         id: deployment

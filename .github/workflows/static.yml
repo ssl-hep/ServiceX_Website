@@ -55,9 +55,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p site/challenge/
-          cp -r 15minhist/build/html/* site/challenge/
+          cp -r 15minhist/build/html/ site/challenge/
           mkdir -p site/guide
-          cp -r client/docs/build/html/* site/guide/
+          cp -r client/docs/build/html/ site/guide/
       
       - name: Setup Pages
         uses: actions/configure-pages@v5

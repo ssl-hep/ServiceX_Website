@@ -29,42 +29,81 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
       - name: Run Pip
-        run: pip install "Sphinx>=7.0.1,<9" furo>=2023.5.20 sphinx-copybutton>=0.5.2 myst-parser>=3.0.1 sphinx-code-include>=1.4.0 func-adl-servicex-xaodr22 autodoc-pydantic==2.2.0 sphinx-tabs>=3.4.5 enum-tools[sphinx]>=0.12.0 servicex
-      - name: Build Sphinx documentation
-        working-directory: ${{ github.workspace }}/15minhist
-        run: sphinx-build -b html source build/html
+        run: pip install "Sphinx>=7.0.1,<9" furo>=2023.5.20 sphinx-copybutton>=0.5.2 myst-parser>=3.0.1 sphinx-code-include>=1.4.0 func-adl-servicex-xaodr22 autodoc-pydantic==2.2.0 sphinx-tabs>=3.4.5 enum-tools[sphinx]>=0.12.0 servicex servicex_analysis_utils
       
-      - name: Checkout secondary docs repo
+      - name: Checkout 15 Minute Docs
+        uses: actions/checkout@v4
+      - name: Checkout Client Docs
         uses: actions/checkout@v4
         with:
           repository: ssl-hep/ServiceX_frontend
           path: client
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build secondary Sphinx documentation
+          sparse-checkout: docs
+          sparse-checkout-cone-mode: true
+      - name: Checkout FuncADL Docs
+        uses: actions/checkout@v4
+        with:
+          repository: iris-hep/func_adl
+          path: funcadl
+          token: ${{ secrets.GITHUB_TOKEN }}
+          sparse-checkout: docs
+          sparse-checkout-cone-mode: true
+      - name: Checkout Utils Docs
+        uses: actions/checkout@v4
+        with:
+          repository: ssl-hep/ServiceX_analysis_utils
+          path: utils
+          token: ${{ secrets.GITHUB_TOKEN }}
+          sparse-checkout: docs
+          sparse-checkout-cone-mode: true
+      
+      - name: Build 15 Minute Sphinx documentation
+        working-directory: ${{ github.workspace }}/15minhist
+        run: sphinx-build -b html source build/html
+      - name: Build Client Sphinx documentation
         working-directory: client/docs
+        run: sphinx-build -b html ./ build/html
+      - name: Build FuncADL Sphinx documentation
+        working-directory: funcadl/docs
+        run: sphinx-build -b html ./ build/html
+      - name: Build Utils Sphinx documentation
+        working-directory: utils/docs
         run: sphinx-build -b html ./ build/html
 
       - name: Assemble site
         run: |
           mkdir -p site/challenge/
-          cp -r 15minhist/build/html/ site/challenge/
+          cp -r 15minhist/build/html/* site/challenge/
           mkdir -p site/guide
-          cp -r client/docs/build/html/ site/guide/
-      
+          cp -r client/docs/build/html/* site/guide/
+          mkdir -p site/funcadl
+          cp -r funcadl/docs/build/html/* site/funcadl/
+          mkdir -p site/utils
+          cp -r utils/docs/build/html/* site/utils/
+      - name: Local act Clean Up
+        if: ${{ env.ACT }}
+        run: |
+          rm -rf 15minhist/build/
+          rm -rf client/
+          rm -rf funcadl/
+          rm -rf utils/
+          rm =*
+
       - name: Setup Pages
+        if: ${{ !env.ACT }}
         uses: actions/configure-pages@v5
       - name: Upload artifact
+        if: ${{ !env.ACT }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'site'
       - name: Deploy to GitHub Pages
+        if: ${{ !env.ACT }}
         id: deployment
         uses: actions/deploy-pages@v4

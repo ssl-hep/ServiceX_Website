@@ -55,8 +55,15 @@ We welcome contributions! Here’s how you can help:
 
 2. **Update the Website**
 
-   Modify HTML, CSS, or JS in `website/` for styling, layout, or functionality improvements.  
-   The documentation pages are linked through iframes. For more information on iframes, see the [W3Schools iframe guide](https://www.w3schools.com/tags/tag_iframe.ASP).
+  Much of the development of the website is done using the github workflow in the repo. In order to best develop this `act` should be used locally. This allows for local testing with committing the changes to git hub, cleaning up and speed up the development process. There are some parts of the workflow that are specifically for the use with `act`. 
+
+  Once setup use this command to run and build a local version:
+
+  ```bash
+  act -s GITHUB_TOKEN=$GITHUB_TOKEN -j deploy --bind
+  ```
+
+  Before running this you will need to set a Personal GitHub token.
 
 3. **Report Issues**
 

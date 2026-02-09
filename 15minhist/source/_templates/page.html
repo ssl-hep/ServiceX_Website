@@ -38,30 +38,6 @@
   .mobile-header {
     top: 76px;
   }
-  /* Proper z-index hierarchy for mobile sidebars */
-
-/* Overlays should be below the sidebars but above content */
-.overlay,
-.sidebar-overlay,
-.toc-overlay {
-    z-index: 10 !important;
-}
-
-/* Sidebars should be above overlays */
-.sidebar-drawer {
-    z-index: 20 !important;
-}
-
-.toc-drawer {
-    z-index: 20 !important;
-}
-
-/* Make sure content is below everything */
-.main,
-.content {
-    z-index: 1 !important;
-}
-
 </style>
 
 <script>
@@ -70,6 +46,39 @@
         .then(html => {
         document.getElementById('navbar').innerHTML = html;
     });   
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Enable hover for dropdowns on desktop
+        const dropdowns = document.querySelectorAll('.navbar .dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', function() {
+            const toggle = this.querySelector('.dropdown-toggle');
+            const menu = this.querySelector('.dropdown-menu');
+            
+            if (window.innerWidth > 992) { // Only on desktop (lg breakpoint)
+                menu.classList.add('show');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+            });
+            
+            dropdown.addEventListener('mouseleave', function() {
+            const toggle = this.querySelector('.dropdown-toggle');
+            const menu = this.querySelector('.dropdown-menu');
+            
+            menu.classList.remove('show');
+            toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+        
+        // Still initialize Bootstrap for click/mobile
+        if (typeof bootstrap !== 'undefined') {
+            var dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+            var dropdownList = Array.from(dropdownElementList).map(function (dropdownToggleEl) {
+            return new bootstrap.Dropdown(dropdownToggleEl);
+            });
+        }
+    });
 </script>
 
 <div id="navbar"></div>

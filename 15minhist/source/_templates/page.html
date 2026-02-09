@@ -1,17 +1,110 @@
 {% extends "!page.html" %}
-
 {% block body %}
+<style>
+  .dropdown-toggle::after {
+    display: none !important;
+  }
+  .nav-item {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+</style>
+<nav class="sx-nav navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid" style="padding-right:3%">
+        <a class="navbar-brand" href="/" style="padding: 0; margin-left: 5%;">
+            <img src="https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/img/logo_servicex.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
+            <span style="font-size:26px; line-height:1; position: relative; top: 8px;">ServiceX</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/ServiceX_Website/site/challenge/">Start</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Use
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/ServiceX_Website/site/challenge/">Quick Start</a></li>
+                        <li><a class="dropdown-item" href="/ServiceX_Website/site/guide/">User Guide</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/ServiceX_Website/site/funcadl/">FuncADL</a></li>
+                        <li><a class="dropdown-item" href="/ServiceX_Website/site/utils/">Analysis Utils</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Explore
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">Workflows</a></li>
+                        <li><a class="dropdown-item" href="">Tutorials</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Discuss
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="https://atlas-talk.web.cern.ch/c/servicex/19">ATLAS Talk</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="https://github.com/ssl-hep/ServiceX_frontend" target="_blank" class="nav-link" style="padding-top: 4px;padding-bottom: 0px;">
+                        <i class="bi bi-github" style="font-size: 30px;"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
 <script>
-  fetch('https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/navbar.html')
-                .then(res => res.text())
-                .then(html => {
-                document.getElementById('navbar').innerHTML = html;
-                });   
+document.addEventListener('DOMContentLoaded', function() {
+  // Enable hover for dropdowns on desktop
+  const dropdowns = document.querySelectorAll('.navbar .dropdown');
+  
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('mouseenter', function() {
+      const toggle = this.querySelector('.dropdown-toggle');
+      const menu = this.querySelector('.dropdown-menu');
+      
+      if (window.innerWidth > 992) { // Only on desktop (lg breakpoint)
+        menu.classList.add('show');
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+    });
+    
+    dropdown.addEventListener('mouseleave', function() {
+      const toggle = this.querySelector('.dropdown-toggle');
+      const menu = this.querySelector('.dropdown-menu');
+      
+      menu.classList.remove('show');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+  
+  // Still initialize Bootstrap for click/mobile
+  if (typeof bootstrap !== 'undefined') {
+    var dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+    var dropdownList = Array.from(dropdownElementList).map(function (dropdownToggleEl) {
+      return new bootstrap.Dropdown(dropdownToggleEl);
+    });
+  }
+});
 </script>
 
-<div id="navbar"></div>
-
-<div class="furo-content-wrapper">
+<div style=" height: calc(100vh - 76px);">
   {{ super() }}
 </div>
 {% endblock %}

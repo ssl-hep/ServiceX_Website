@@ -30,9 +30,6 @@ html_css_files = [
      {'crossorigin': 'anonymous'}),
     ('https://rogerjanusiak.github.io/ServiceX_Website/navbar.css',
      {'crossorigin': 'anonymous'}),
-    ('https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css',
-     {'crossorigin': 'anonymous'}),
-    
 ]
 
 html_js_files = [

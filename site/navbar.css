@@ -1,24 +1,39 @@
 #navbar {
-    position:fixed; 
-    top: 0;
-    width: 100vw;
-    z-index: 1;
+  position:fixed; 
+  top: 0;
+  width: 100vw;
+  z-index: 9999 !important;
+}
+
+.navbar-brand {
+  padding: 0; 
+  margin-left: 5%;
+  margin-top:-3px;
 }
 
 .navbar {
     min-height: 76px;
 }
 
+.nav-item {
+  font-size: 20px;
+  font-weight: 500;
+}
+
 .nav-link {
-    padding-top: 13px; 
-    font-size:20px;
+  padding-top: 13px; 
+  font-size:20px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
 }
 
 .sx-nav {
-    padding-top:11px;
-    padding-bottom:15px;
+  padding-top:11px;
+  padding-bottom:15px;
 
-    background-color: #2468ae;
+  background-color: #2468ae;
 }
 :root {
   --blue: #007bff;

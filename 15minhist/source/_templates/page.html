@@ -1,43 +1,33 @@
 {% extends "!page.html" %}
 {% block body %}
 <style>
-  .dropdown-toggle::after {
-    display: none !important;
-  }
-  #navbar {
-    z-index: 9999 !important;
-  }
-  .nav-item {
-    font-size: 20px;
-    font-weight: 500;
-  }
-  body {
-    background-color: var(--color-background-primary) !important;
-}
-  .content {
-    overflow: scroll;
-    padding-top: 40px;
-  }
-  #wrapper {
-    position: fixed;
-    top: 76px;
-    min-height: calc(100vh - 76px) !important;
-    height: calc(100vh - 76px);
-  }
-  .page {
-    position: fixed;
-    top: 76px;
-    min-height: calc(100vh - 76px) !important;
-    height: calc(100vh - 76px);
-    width: 100vw;
-  }
-  .main {
-    min-height: calc(100vh - 76px) !important;
-    height: calc(100vh - 76px);
-  }
-  .mobile-header {
-    top: 76px;
-  }
+    body {
+        background-color: var(--color-background-primary) !important;
+    }
+    .content {
+        overflow: scroll;
+        padding-top: 40px;
+    }
+    #wrapper {
+        position: fixed;
+        top: 76px;
+        min-height: calc(100vh - 76px) !important;
+        height: calc(100vh - 76px);
+    }
+    .page {
+        position: fixed;
+        top: 76px;
+        min-height: calc(100vh - 76px) !important;
+        height: calc(100vh - 76px);
+        width: 100vw;
+    }
+    .main {
+        min-height: calc(100vh - 76px) !important;
+        height: calc(100vh - 76px);
+    }
+    .mobile-header {
+        top: 76px;
+    }
 </style>
 
 <script>

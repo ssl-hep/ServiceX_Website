@@ -13,9 +13,10 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
         <link href="index.css" rel="stylesheet">
+        <link href="navbar.css" rel="stylesheet">
         <script>hljs.highlightAll();</script>
         <script>
-            fetch('/ServiceX_Website/site/navbar.html')
+            fetch('https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/navbar.html')
                 .then(res => res.text())
                 .then(html => {
                 document.getElementById('navbar').innerHTML = html;

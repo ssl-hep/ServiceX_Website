@@ -1,4 +1,4 @@
-# ServiceX Documentation Guidelines
+# ServiceX Documentation Guidelines (V1)
 
 As per the nature of the project ServiceX has a lot of different documentations. In order to improve the user experience as well as the developer experience this document outlines some guidelines that should be followed when working on the documentation. The first part of these guidelines will be technical, these will cover the actual development of the docs and how to setup the projects in the correct way to match the rest. The second part of the guidelines will editorial, these will cover how to structure and write the actual documentation content.
 
@@ -28,17 +28,13 @@ Within that directory there should be a source directory where the markdown file
 
 ### pyproject.toml
 
-Each pyproject.toml should have a docs dependency list to allow for easy development. Because DocTest will be setup for all docs it is important that this list includes everything that is required to run the code in the library. This list could look like this:
+Each pyproject.toml should have a docs dependency list to allow for easy development. Because DocTest will be setup for all docs it is important that this list includes everything that is required to build the docs, but doesn't need the doc test libraries because a test area should be made for that. This list could look like this:
 
 ```
 docs = [
     "sphinx",
     "furo",
     "myst_parser",
-    "awkward",
-    "numpy",
-    "servicex_analysis_utils",
-    "servicex",
 ]
 ```
 

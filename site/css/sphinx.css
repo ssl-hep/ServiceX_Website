@@ -30,3 +30,9 @@ body {
 .content {
     padding-top: 40px;
 }
+.sidebar-brand {
+    padding-bottom: 0px;
+}
+.sidebar-tree {
+    margin-top: 0px;
+}

@@ -2,7 +2,7 @@
 {% block body %}
 <script>
 
-    fetch('/site/navbar.html')
+    fetch('https://raw.githubusercontent.com/ssl-hep/ServiceX_Website/main/site/navbar.html')
         .then(res => res.text())
         .then(html => {
             document.getElementById('navbar').innerHTML = html;

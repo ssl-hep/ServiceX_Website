@@ -1,28 +1,21 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: Build all Documentation and Deploy to GitHub Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -38,6 +31,10 @@ jobs:
       
       - name: Checkout 15 Minute Docs
         uses: actions/checkout@v4
+      - name: Build 15 Minute Sphinx documentation
+        working-directory: ${{ github.workspace }}/15minhist
+        run: sphinx-build -b html source build/html
+
       - name: Checkout Client Docs
         uses: actions/checkout@v4
         with:
@@ -46,6 +43,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           sparse-checkout: docs
           sparse-checkout-cone-mode: true
+      - name: Build Client Sphinx documentation
+        working-directory: client/docs
+        run: sphinx-build -b html ./ build/html
+
       - name: Checkout FuncADL Docs
         uses: actions/checkout@v4
         with:
@@ -54,6 +55,10 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           sparse-checkout: docs
           sparse-checkout-cone-mode: true
+      - name: Build FuncADL Sphinx documentation
+        working-directory: funcadl/docs
+        run: sphinx-build -b html ./ build/html
+
       - name: Checkout Utils Docs
         uses: actions/checkout@v4
         with:
@@ -62,16 +67,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           sparse-checkout: docs
           sparse-checkout-cone-mode: true
-      
-      - name: Build 15 Minute Sphinx documentation
-        working-directory: ${{ github.workspace }}/15minhist
-        run: sphinx-build -b html source build/html
-      - name: Build Client Sphinx documentation
-        working-directory: client/docs
-        run: sphinx-build -b html ./ build/html
-      - name: Build FuncADL Sphinx documentation
-        working-directory: funcadl/docs
-        run: sphinx-build -b html ./ build/html
       - name: Build Utils Sphinx documentation
         working-directory: utils/docs
         run: sphinx-build -b html ./ build/html

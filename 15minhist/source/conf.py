@@ -39,3 +39,13 @@ html_js_files = [
 ]
 
 html_theme = "furo"
+
+# Configure sidebar to exclude search bar
+html_sidebars = {
+    "**": [
+        "sidebar/brand.html",
+        "sidebar/navigation.html",
+        "sidebar/scroll-start.html",
+        "sidebar/scroll-end.html",
+    ]
+}

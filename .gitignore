@@ -1,3 +1,9 @@
 build/*
 .venv
 15minhist/build/
+site/challenge/
+site/guide/
+=*
+client/
+funcadl/
+utils/

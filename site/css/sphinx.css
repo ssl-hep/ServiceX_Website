@@ -1,0 +1,32 @@
+body {
+    background-color: var(--color-background-primary) !important;
+}
+.page {
+    padding-top: 76px;
+}
+.mobile-header {
+    top: 76px !important;
+}
+.sidebar-sticky,
+.toc-sticky {
+    top: 76px !important;
+    height: calc(100vh - 76px) !important;
+}
+@media (max-width: 82em) {
+    .toc-drawer {
+        height: calc(100vh - 76px) !important;
+        top: 76px !important;
+    }
+}
+@media (max-width: 63em) {
+    .sidebar-drawer {
+        height: calc(100vh - 76px) !important;
+        top: 76px !important;
+    }
+    .mobile-header {
+        position: sticky !important;
+    }
+}
+.content {
+    padding-top: 40px;
+}

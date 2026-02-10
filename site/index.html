@@ -3,16 +3,20 @@
     <head>
         <title>Welcome to ServiceX</title>
         <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
+        <link href="index.css" rel="stylesheet">
+        <link href="navbar.css" rel="stylesheet">
         <script>hljs.highlightAll();</script>
         <script>
-            fetch('/navbar.html')
+            fetch('https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/navbar.html')
                 .then(res => res.text())
                 .then(html => {
                 document.getElementById('navbar').innerHTML = html;
@@ -44,7 +48,7 @@
             <center>
                 <h1 class="mb-0">Accelerate your Analysis with ServiceX</h1>                
                 <p style="margin-top: 4vh;">Select and transform large datasets into<br class="text-break"> analysis-ready data using Python.</p>
-                <a href="/docs/challenge/">
+                <a href="/ServiceX_Website/challenge/">
                     <button type="button" class="primary-btn" style="margin-top:3vh;">Get Started</button>
                 </a> 
             </center>
@@ -102,7 +106,7 @@ plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
             </div>
             <center>
                 <div style="margin-top: 6vh;">
-                    <a href="/docs/challenge/">
+                    <a href="/ServiceX_Website/challenge/">
                         <button type="button" class="primary-btn" style="margin-left: 25px">Go from Install to Histogram in 15 Minutes</button>
                     </a>
                 </div>   

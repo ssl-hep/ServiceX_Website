@@ -1,77 +1,47 @@
 {% extends "!page.html" %}
 {% block body %}
-<style>
-    body {
-        background-color: var(--color-background-primary) !important;
-    }
-    .content {
-        overflow: scroll;
-        padding-top: 40px;
-    }
-    #wrapper {
-        position: fixed;
-        top: 76px;
-        min-height: calc(100vh - 76px) !important;
-        height: calc(100vh - 76px);
-    }
-    .page {
-        position: fixed;
-        top: 76px;
-        min-height: calc(100vh - 76px) !important;
-        height: calc(100vh - 76px);
-        width: 100vw;
-    }
-    .main {
-        min-height: calc(100vh - 76px) !important;
-        height: calc(100vh - 76px);
-    }
-    .mobile-header {
-        top: 76px;
-    }
-</style>
-
 <script>
-    fetch('https://raw.githubusercontent.com/RogerJanusiak/ServiceX_Website/main/site/navbar.html')
+
+    fetch('/site/navbar.html')
         .then(res => res.text())
         .then(html => {
-        document.getElementById('navbar').innerHTML = html;
-    });   
+            document.getElementById('navbar').innerHTML = html;
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Enable hover for dropdowns on desktop
-        const dropdowns = document.querySelectorAll('.navbar .dropdown');
-        
-        dropdowns.forEach(dropdown => {
-            dropdown.addEventListener('mouseenter', function() {
-            const toggle = this.querySelector('.dropdown-toggle');
-            const menu = this.querySelector('.dropdown-menu');
-            
-            if (window.innerWidth > 992) { // Only on desktop (lg breakpoint)
-                menu.classList.add('show');
-                toggle.setAttribute('aria-expanded', 'true');
+            // Initialize dropdown hover behavior after navbar is loaded
+            const dropdowns = document.querySelectorAll('.navbar .dropdown');
+
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('mouseenter', function() {
+                    const toggle = this.querySelector('.dropdown-toggle');
+                    const menu = this.querySelector('.dropdown-menu');
+
+                    if (window.innerWidth > 992) { // Only on desktop (lg breakpoint)
+                        menu.classList.add('show');
+                        toggle.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                dropdown.addEventListener('mouseleave', function() {
+                    const toggle = this.querySelector('.dropdown-toggle');
+                    const menu = this.querySelector('.dropdown-menu');
+
+                    menu.classList.remove('show');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+
+            // Still initialize Bootstrap for click/mobile
+            if (typeof bootstrap !== 'undefined') {
+                var dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+                var dropdownList = Array.from(dropdownElementList).map(function (dropdownToggleEl) {
+                    return new bootstrap.Dropdown(dropdownToggleEl);
+                });
             }
-            });
-            
-            dropdown.addEventListener('mouseleave', function() {
-            const toggle = this.querySelector('.dropdown-toggle');
-            const menu = this.querySelector('.dropdown-menu');
-            
-            menu.classList.remove('show');
-            toggle.setAttribute('aria-expanded', 'false');
-            });
         });
-        
-        // Still initialize Bootstrap for click/mobile
-        if (typeof bootstrap !== 'undefined') {
-            var dropdownElementList = document.querySelectorAll('.dropdown-toggle');
-            var dropdownList = Array.from(dropdownElementList).map(function (dropdownToggleEl) {
-            return new bootstrap.Dropdown(dropdownToggleEl);
-            });
-        }
-    });
 </script>
 
 <div id="navbar"></div>
+
 <div id="wrapper">
 {{ super() }}
 </div>

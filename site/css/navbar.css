@@ -1,0 +1,68 @@
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 9999;
+}
+
+.title-text {
+  font-size:26px; 
+  line-height:1; 
+  position: relative;
+  top: 10px;
+  color: white;
+}
+
+.navbar-brand {
+  padding: 0; 
+  margin-left: 5%;
+  margin-top:-1px;
+  color: white;
+}
+
+.navbar {
+    min-height: 76px;
+}
+
+.nav-item {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.nav-link {
+  padding-top: 13px; 
+  font-size:20px;
+}
+
+.navbar-nav {
+  margin-top: 3px;
+}
+
+.dropdown-toggle::after {
+  display: none !important;
+}
+
+/* Set navbar link colors to Bootstrap navbar-dark defaults */
+.sx-nav .nav-link,
+.sx-nav .nav-link:visited,
+.sx-nav .dropdown-toggle,
+.sx-nav .dropdown-toggle:visited {
+  color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.sx-nav .nav-link:hover,
+.sx-nav .dropdown-toggle:hover {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+.sx-nav .dropdown-item:visited {
+  color: #212529;
+}
+
+.sx-nav {
+  width: 100vw;
+  height: 76px;
+  padding: 0;
+  background-color: #2468ae;
+}

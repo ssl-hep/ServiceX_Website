@@ -1,7 +1,0 @@
-api_endpoints:
-  - endpoint: https://servicex.af.uchicago.edu
-    name: servicex-uc-af
-    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0NzI2NjQzOCwianRpIjoiOTEwMjUxZDEtNzcwMC00YzZhLWFhYzUtYzQzNjBjOGU1YjE1IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiJyb2dlcmphQHV3LmVkdSIsIm5iZiI6MTc0NzI2NjQzOCwiY3NyZiI6ImZlN2UyY2YzLTY5NDMtNDNmMy05ZmViLTk0OGUzZDlhZWQ5NSJ9.jom0pPXMxd0msv5jGoyG8DnAGY6EZexGwFc2s7LmJ90
-
-cache_path: /Users/rogerjanusiak/Documents/IRIS-HEP/ServiceX_Website/downloads
-shortened_downloaded_filename: true

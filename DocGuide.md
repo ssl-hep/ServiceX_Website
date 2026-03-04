@@ -4,6 +4,16 @@ As per the nature of the project ServiceX has a lot of different documentations.
 
 ## Technical Guidelines
 
+### Testing Docs
+
+If you already have created docs that you would like to build and test this is how you can do that:
+
+1. Clone the repo and checkout the PR/Branch to test
+2. Create a .venv using the Docs set of dependencies
+3. `cd docs/`
+4. `sphinx-build -a -E source build`
+5. Navigate to `/docs/build/index.html` and open it using LiveServer or similar plugin.
+
 ### Sphinx/Furo and Using Markdown
 
 For all ServiceX projects the Sphinx framework should be used to build the documentation. The Furo theme should be used on top of the Sphinx frame work. Both `sphinx` and `furo` can be installed with pip. To install the Furo theme into Sphinx put this line in the conf.py:

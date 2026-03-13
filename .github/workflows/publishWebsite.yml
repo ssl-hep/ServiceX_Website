@@ -45,7 +45,7 @@ jobs:
           sparse-checkout-cone-mode: true
       - name: Build Client Sphinx documentation
         working-directory: client/docs
-        run: sphinx-build -b html ./ build/html
+        run: sphinx-build -b html source build/html
 
       - name: Checkout FuncADL Docs
         uses: actions/checkout@v4

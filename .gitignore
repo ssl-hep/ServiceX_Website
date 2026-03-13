@@ -10,3 +10,4 @@ utils/
 testing/
 servicex.yaml
 site/pagefind/
+.claude/

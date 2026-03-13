@@ -81,6 +81,9 @@ jobs:
           cp -r funcadl/docs/build/html/* site/funcadl/
           mkdir -p site/utils
           cp -r utils/docs/build/html/* site/utils/
+      - name: Build Pagefind search index
+        run: npx pagefind --site site
+
       - name: Local act Clean Up
         if: ${{ env.ACT }}
         run: |

@@ -21,8 +21,47 @@
             fetch('https://raw.githubusercontent.com/ssl-hep/ServiceX_Website/main/site/navbar.html')
                 .then(res => res.text())
                 .then(html => {
-                document.getElementById('navbar').innerHTML = html;
-                });     
+                    document.getElementById('navbar').innerHTML = html;
+
+                    // Initialize dropdown hover behavior after navbar is loaded
+                    const dropdowns = document.querySelectorAll('.navbar .dropdown');
+                    dropdowns.forEach(dropdown => {
+                        dropdown.addEventListener('mouseenter', function() {
+                            const toggle = this.querySelector('.dropdown-toggle');
+                            const menu = this.querySelector('.dropdown-menu');
+                            if (window.innerWidth > 992) {
+                                menu.classList.add('show');
+                                toggle.setAttribute('aria-expanded', 'true');
+                            }
+                        });
+                        dropdown.addEventListener('mouseleave', function() {
+                            const toggle = this.querySelector('.dropdown-toggle');
+                            const menu = this.querySelector('.dropdown-menu');
+                            menu.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        });
+                    });
+
+                    // Initialize Bootstrap dropdowns for click/mobile
+                    if (typeof bootstrap !== 'undefined') {
+                        var dropdownElementList = document.querySelectorAll('.dropdown-toggle');
+                        dropdownElementList.forEach(function(el) {
+                            new bootstrap.Dropdown(el);
+                        });
+                    }
+
+                    const pfLink = document.createElement('link');
+                    pfLink.rel = 'stylesheet';
+                    pfLink.href = '/pagefind/pagefind-ui.css';
+                    document.head.appendChild(pfLink);
+
+                    const pfScript = document.createElement('script');
+                    pfScript.src = '/pagefind/pagefind-ui.js';
+                    pfScript.onload = () => {
+                        new PagefindUI({ element: '#search', showImages: false });
+                    };
+                    document.head.appendChild(pfScript);
+                });
                 
             function showxAOD() {
                 $('#xAOD-example').css("display", "block");
@@ -46,6 +85,7 @@
         </script>
     </head>
     <body>
+        <div id="navbar"></div>
         <div class="light-wrapper" style="margin-top: 76px;">
             <center>
                 <h1 class="mb-0">Accelerate your Analysis with ServiceX</h1>                
@@ -114,6 +154,5 @@ plt.hist(ak.flatten(data.jet), bins=50, range=(0, 100))
                 </div>   
             </center>
         </div>
-        <div id="navbar"></div>
     </body>
 </html>

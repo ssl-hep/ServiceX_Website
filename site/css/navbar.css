@@ -7,18 +7,18 @@
 }
 
 .title-text {
-  font-size:26px; 
-  line-height:1; 
-  position: relative;
-  top: 10px;
+  font-size:26px;
+  line-height:1;
   color: white;
 }
 
 .navbar-brand {
-  padding: 0; 
+  padding: 0;
   margin-left: 5%;
-  margin-top:-1px;
   color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .navbar {
@@ -36,7 +36,24 @@
 }
 
 .navbar-nav {
-  margin-top: 3px;
+  margin-top: 4px;
+}
+
+/* GitHub icon: center it vertically independent of font metrics */
+.sx-nav .navbar-nav:last-child .nav-link {
+  padding-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+.clean {
+  padding: 0 !important;
+}
+
+/* Reset Furo's global ul rules that break navbar flex alignment */
+.sx-nav ul.navbar-nav {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
 }
 
 .dropdown-toggle::after {
@@ -65,4 +82,92 @@
   height: 76px;
   padding: 0;
   background-color: #2468ae;
+  overflow: visible;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Search bar — fixed width so it doesn't push nav items around */
+#search {
+  position: relative;
+  width: 260px;
+  flex-shrink: 0;
+  align-self: center;
+  margin-right: 0.5rem;
+}
+
+/* Scale down the pagefind input to fit the navbar */
+#search .pagefind-ui {
+  --pagefind-ui-scale: 0.5;
+}
+
+/* Drop results below the navbar as an overlay — no layout impact */
+#search .pagefind-ui__drawer {
+  position: absolute;
+  top: 38px;
+  right: 0;
+  width: 580px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  max-height: 60vh;
+  overflow-y: auto;
+  padding: 0 16px 16px;
+  z-index: 10000;
+  --pagefind-ui-scale: 0.75;
+}
+
+#search .pagefind-ui__results-area {
+  min-width: unset;
+}
+
+/* Source label — shown above each result title */
+#search .pagefind-ui__result-title a[href^="/challenge"]::before { content: "15 Minute Challenge · "; color: #2468ae; font-size: 0.75em; font-weight: 400; display: block; margin-bottom: 2px; }
+#search .pagefind-ui__result-title a[href^="/guide"]::before     { content: "User Guide · ";           color: #2468ae; font-size: 0.75em; font-weight: 400; display: block; margin-bottom: 2px; }
+#search .pagefind-ui__result-title a[href^="/funcadl"]::before   { content: "FuncADL · ";               color: #2468ae; font-size: 0.75em; font-weight: 400; display: block; margin-bottom: 2px; }
+#search .pagefind-ui__result-title a[href^="/utils"]::before     { content: "Analysis Utils · ";        color: #2468ae; font-size: 0.75em; font-weight: 400; display: block; margin-bottom: 2px; }
+
+/* Search input — dark blue at rest, white on focus */
+#search .pagefind-ui__search-input {
+  background-color: #1a4e8a;
+  color: white;
+  border-color: rgba(255, 255, 255, 0.3);
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+#search .pagefind-ui__search-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
+#search .pagefind-ui__search-input:focus {
+  background-color: white;
+  color: #333;
+  border-color: white;
+}
+
+#search .pagefind-ui__search-input:focus::placeholder {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+/* Search icon — white at rest, dark on focus */
+#search .pagefind-ui__form::before {
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#search .pagefind-ui__form:focus-within::before {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Clear button */
+#search .pagefind-ui__search-clear {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#search .pagefind-ui__form:focus-within .pagefind-ui__search-clear {
+  background-color: white;
+  color: #333;
 }

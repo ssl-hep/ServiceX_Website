@@ -88,6 +88,41 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* On small screens the collapsed menu expands inside the nav — let the blue background grow with it */
+@media (max-width: 991.98px) {
+  .sx-nav {
+    height: auto;
+    min-height: 76px;
+    padding-bottom: 0.5rem;
+  }
+
+  /* Pin the brand+toggler row to the top so they don't re-center as the navbar grows */
+  .sx-nav .container-fluid {
+    align-items: flex-start;
+  }
+
+  .sx-nav .navbar-brand {
+    height: 76px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sx-nav .navbar-toggler {
+    align-self: center;
+  }
+
+  #search {
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-right: 0;
+  }
+
+  /* Hide GitHub icon in the collapsed mobile menu */
+  .sx-nav .navbar-nav:last-child {
+    display: none;
+  }
+}
+
 /* Search bar — fixed width so it doesn't push nav items around */
 #search {
   position: relative;

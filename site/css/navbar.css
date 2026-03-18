@@ -117,6 +117,12 @@
     margin-right: 0;
   }
 
+  #search .pagefind-ui__drawer {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+
   /* Hide GitHub icon in the collapsed mobile menu */
   .sx-nav .navbar-nav:last-child {
     display: none;

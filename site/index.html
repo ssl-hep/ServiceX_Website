@@ -14,12 +14,12 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/python.min.js"></script>
 
-        <link href="/css/index.css" rel="stylesheet">
-        <link href="/css/navbar.css" rel="stylesheet">
+        <link href="https://tryservicex.org/css/index.css" rel="stylesheet">
+        <link href="https://tryservicex.org/css/navbar.css" rel="stylesheet">
 
         <script>hljs.highlightAll();</script>
         <script>
-            fetch('/navbar.html')
+            fetch('https://raw.githubusercontent.com/ssl-hep/ServiceX_Website/main/site/navbar.html')
                 .then(res => res.text())
                 .then(html => {
                     document.getElementById('navbar').innerHTML = html;

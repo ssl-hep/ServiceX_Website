@@ -134,9 +134,12 @@
   }
 
   #search .pagefind-ui__drawer {
-    left: 0;
-    right: 0;
-    width: auto;
+    position: absolute !important;
+    top: 38px !important;
+    left: 50% !important;
+    right: auto !important;
+    width: 90vw !important;
+    transform: translateX(-50%);
     max-height: calc(100vh - 160px);
   }
 

@@ -41,7 +41,9 @@ jobs:
           repository: ssl-hep/ServiceX_frontend
           path: client
           token: ${{ secrets.GITHUB_TOKEN }}
-          sparse-checkout: docs
+          sparse-checkout: |
+            docs
+            examples
           sparse-checkout-cone-mode: true
       - name: Build Client Sphinx documentation
         working-directory: client/docs

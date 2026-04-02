@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run Pip
-        run: pip install "Sphinx>=7.0.1,<9" furo>=2023.5.20 sphinx-copybutton>=0.5.2 myst-parser>=3.0.1 sphinx-code-include>=1.4.0 func-adl-servicex-xaodr22 autodoc-pydantic==2.2.0 sphinx-tabs>=3.4.5 enum-tools[sphinx]>=0.12.0 servicex servicex_analysis_utils
+        run: pip install "Sphinx>=7.0.1,<9" furo>=2023.5.20 sphinx-copybutton>=0.5.2 myst-parser>=3.0.1 sphinx-code-include>=1.4.0 func-adl-servicex-xaodr22 autodoc-pydantic==2.2.0 sphinx-tabs>=3.4.5 enum-tools[sphinx]>=0.12.0 servicex servicex_analysis_utils sphinx_design
       
       - name: Checkout 15 Minute Docs
         uses: actions/checkout@v4

@@ -82,7 +82,7 @@ jobs:
           cp -r 15minhist/build/html/* site/challenge/
           mkdir -p site/guide
           cp -r client/docs/userguide/build/html/* site/guide/
-          mkdir -p site/guide
+          mkdir -p site/reference
           cp -r client/docs/reference/build/html/* site/reference/
           mkdir -p site/funcadl
           cp -r funcadl/docs/build/html/* site/funcadl/

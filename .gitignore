@@ -1,6 +1,7 @@
 build/*
 .venv
 15minhist/build/
+15minhist/source/_includes/
 site/challenge/
 site/guide/
 =*

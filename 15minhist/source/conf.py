@@ -3,6 +3,27 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+import urllib.error
+import urllib.request
+
+# Pull install/setup content from the ServiceX_frontend repo so it lives in one place.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_UPSTREAM_SETUP_URL = (
+    "https://raw.githubusercontent.com/ssl-hep/ServiceX_frontend/"
+    "master/docs/userguide/source/setup.md"
+)
+_INCLUDE_PATH = os.path.join(_HERE, "_includes", "setup.md")
+
+os.makedirs(os.path.dirname(_INCLUDE_PATH), exist_ok=True)
+try:
+    urllib.request.urlretrieve(_UPSTREAM_SETUP_URL, _INCLUDE_PATH)
+except urllib.error.URLError as exc:
+    if not os.path.exists(_INCLUDE_PATH):
+        raise RuntimeError(
+            f"Failed to download {_UPSTREAM_SETUP_URL}: {exc}"
+        ) from exc
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -19,9 +40,21 @@ html_short_title = "15min Histogram"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    "myst_parser",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.viewcode",
     "sphinx.ext.doctest",
+    "code_include.extension",
+    "myst_parser",
+    "sphinx_design",
+    "sphinxcontrib.autodoc_pydantic",
+    "sphinx_tabs.tabs",
     "sphinx_copybutton",
+    "enum_tools.autoenum",
+]
+
+myst_enable_extensions = [
+    "colon_fence",
 ]
 
 templates_path = ['_templates']

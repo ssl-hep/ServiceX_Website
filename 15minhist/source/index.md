@@ -30,12 +30,21 @@ You’re ready to dive in! Head to the next page to install and initialize Servi
 
 
 ```{toctree}
+:caption: ATLAS
 :hidden:
 
-install.md
-type.md
-uproot.md
-funcadl.md
+atlas/install.md
+atlas/type.md
+atlas/uproot.md
+atlas/funcadl.md
 
 ```
 
+```{toctree}
+:caption: CMS
+:hidden:
+
+cms/setup.md
+cms/challenge.md
+
+```

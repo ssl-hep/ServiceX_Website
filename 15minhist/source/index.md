@@ -27,8 +27,6 @@ To get the most out of this challenge, make sure you have:
 
 You’re ready to dive in! Head to the next page to install and initialize ServiceX in your environment and start building your histogram.
 
-
-
 ```{toctree}
 :caption: ATLAS
 :hidden:

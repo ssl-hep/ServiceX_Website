@@ -23,3 +23,8 @@ The `servicex` client is installed using `pip`:
 ```shell
 pip install servicex
 ```
+
+## Authenticating with Purdue
+
+In order to use ServiceX you must be authenticated with a ServiceX backend. For this tutorial we are going to use Purdue. Please go to this link to login: [Purdue Analysis Facility Login](https://cms.geddes.rcac.purdue.edu/hub).
+

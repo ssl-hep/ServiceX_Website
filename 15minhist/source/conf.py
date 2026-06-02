@@ -4,20 +4,43 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
 import os
+import re
 import urllib.error
 import urllib.request
 
 # Pull install/setup content from the ServiceX_frontend repo so it lives in one place.
 _HERE = os.path.dirname(os.path.abspath(__file__))
-_UPSTREAM_SETUP_URL = (
+_UPSTREAM_BASE_URL = (
     "https://raw.githubusercontent.com/ssl-hep/ServiceX_frontend/"
-    "master/docs/userguide/source/setup.md"
+    "master/docs/userguide/source/"
 )
-_INCLUDE_PATH = os.path.join(_HERE, "_includes", "setup.md")
+_UPSTREAM_SETUP_URL = _UPSTREAM_BASE_URL + "setup.md"
+_INCLUDE_DIR = os.path.join(_HERE, "_includes")
+_INCLUDE_PATH = os.path.join(_INCLUDE_DIR, "setup.md")
 
-os.makedirs(os.path.dirname(_INCLUDE_PATH), exist_ok=True)
+os.makedirs(_INCLUDE_DIR, exist_ok=True)
 try:
     urllib.request.urlretrieve(_UPSTREAM_SETUP_URL, _INCLUDE_PATH)
+    with open(_INCLUDE_PATH) as _f:
+        _content = _f.read()
+    # Download any images referenced in setup.md into _includes/imgs/ and
+    # rewrite paths to source-root-absolute so they resolve correctly when
+    # setup.md is processed via {include} from a parent document.
+    _img_dir = os.path.join(_INCLUDE_DIR, "imgs")
+    os.makedirs(_img_dir, exist_ok=True)
+    for _img_path in re.findall(r"\{image\}\s+([\w./-]+\.png)", _content):
+        _img_name = os.path.basename(_img_path)
+        _img_url = _UPSTREAM_BASE_URL + _img_path
+        try:
+            urllib.request.urlretrieve(_img_url, os.path.join(_img_dir, _img_name))
+        except urllib.error.URLError:
+            pass  # keep any existing local copy
+        _content = _content.replace(
+            f"{{image}} {_img_path}",
+            f"{{image}} /_includes/imgs/{_img_name}",
+        )
+    with open(_INCLUDE_PATH, "w") as _f:
+        _f.write(_content)
 except urllib.error.URLError as exc:
     if not os.path.exists(_INCLUDE_PATH):
         raise RuntimeError(
@@ -82,3 +105,5 @@ html_sidebars = {
 }
 
 html_theme = "furo"
+
+exclude_patterns = ["_includes"]

@@ -55,6 +55,7 @@ spec_uproot_raw = {
         'Dataset': nanoaod_dataset,
         'Query': uproot_raw_query
     }]
+}
 ```
 
 ## Deliver The Spec

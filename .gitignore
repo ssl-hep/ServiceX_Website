@@ -12,3 +12,4 @@ testing/
 servicex.yaml
 site/pagefind/
 .claude/
+.ds_store

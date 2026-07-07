@@ -1,7 +1,7 @@
 [workspace]
 name = "servicex-workshop"
 version = "0.0.1"
-description = "IRIS-HEP ATLAS integration challenge"
+description = "ServiceX ATLAS Workshop"
 authors = ["Roger Janusiak <rogerja@uw.edu>", "Artur Cordeiro Oudot Choi <acordeir@cern.ch>"]
 channels = ["conda-forge"]
 platforms = ["osx-arm64", "linux-64", "osx-64"]
@@ -15,7 +15,7 @@ description = "Get started with the repository"
 depends-on = ["lab"]
 
 [dependencies]
-python = "3.11.*" #no torch wheels on cp313
+python = "3.11.*"
 ipykernel = "*"
 notebook = ">=7.5.0,<8"
 jupyterlab = ">=4.5.0,<5"
@@ -28,6 +28,7 @@ servicex = ">=3.2.3,<4"
 uproot = ">=5.0.0" 
 servicex-analysis-utils = ">=1.2.2,<2"
 func_adl_servicex_xaodr25 = ">=2.4.5.25.2.41,<3"
+vector = "*"
 #coffea = ">=2025.10.1,<2026"
 #atlas-schema = ">=0.4.1,<0.5"
 #atlasopenmagic = ">=1.6.1,<2"

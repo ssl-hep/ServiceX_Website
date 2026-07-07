@@ -12,4 +12,5 @@ testing/
 servicex.yaml
 site/pagefind/
 .claude/
+.ds_store
 ./tutorials/Workshops/ATLAS/servicex.yaml

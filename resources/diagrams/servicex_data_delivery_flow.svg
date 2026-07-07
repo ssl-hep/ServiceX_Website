@@ -1,0 +1,64 @@
+<svg width="100%" viewBox="0 0 950 200" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+<defs>
+  <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M2 1L8 5L2 9" fill="none" stroke="#3a6b96" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+</defs>
+
+<!-- Dataset -->
+<rect x="20" y="53" width="90" height="34" rx="7" stroke-width="1" fill="#25517e" stroke="#5c8fc2"/>
+<text x="65" y="70" text-anchor="middle" dominant-baseline="central" style="fill:#dceaf7;font-size:12px;font-weight:600">Dataset</text>
+
+<!-- Query -->
+<rect x="20" y="113" width="90" height="34" rx="7" stroke-width="1" fill="#25517e" stroke="#5c8fc2"/>
+<text x="65" y="130" text-anchor="middle" dominant-baseline="central" style="fill:#dceaf7;font-size:12px;font-weight:600">Query</text>
+
+<line x1="110" y1="70" x2="132" y2="90" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+<line x1="110" y1="130" x2="132" y2="110" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- Sample -->
+<rect x="140" y="75" width="120" height="50" rx="8" stroke-width="1" fill="#4a4a48" stroke="#8a8a84"/>
+<text x="200" y="93" text-anchor="middle" dominant-baseline="central" style="fill:#e4e4e0;font-size:13px;font-weight:600">Sample</text>
+<text x="200" y="111" text-anchor="middle" dominant-baseline="central" style="fill:#b7b7b0;font-size:11px">dataset + query</text>
+
+<line x1="260" y1="100" x2="282" y2="100" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- Spec (container) -->
+<rect x="290" y="25" width="150" height="150" rx="10" stroke-width="1" fill="#2c5f8a" stroke="#7fb3e0"/>
+<text x="365" y="48" text-anchor="middle" dominant-baseline="central" style="fill:white;font-size:14px;font-weight:700">Spec</text>
+<rect x="315" y="64" width="100" height="24" rx="6" stroke-width="1" fill="#376f9f" stroke="#9fc7ea"/>
+<text x="365" y="76" text-anchor="middle" dominant-baseline="central" style="fill:#eaf4fb;font-size:11px">Sample 1</text>
+<rect x="315" y="94" width="100" height="24" rx="6" stroke-width="1" fill="#376f9f" stroke="#9fc7ea" opacity="0.85"/>
+<text x="365" y="106" text-anchor="middle" dominant-baseline="central" style="fill:#eaf4fb;font-size:11px">Sample 2 …</text>
+<text x="365" y="152" text-anchor="middle" dominant-baseline="central" style="fill:#bcdcf2;font-size:11px">collection of samples</text>
+
+<line x1="440" y1="100" x2="462" y2="100" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- deliver() -->
+<rect x="470" y="72" width="110" height="56" rx="8" stroke-width="1" fill="#1f6f8f" stroke="#7fd0e6"/>
+<text x="525" y="92" text-anchor="middle" dominant-baseline="central" style="fill:white;font-size:13px;font-weight:600">deliver()</text>
+<text x="525" y="111" text-anchor="middle" dominant-baseline="central" style="fill:#bfeaf5;font-size:11px">client function</text>
+
+<line x1="580" y1="100" x2="602" y2="100" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- Transform request -->
+<rect x="610" y="72" width="94" height="56" rx="8" stroke-width="1" fill="#4a4a48" stroke="#8a8a84"/>
+<text x="657" y="91" text-anchor="middle" dominant-baseline="central" style="fill:#e4e4e0;font-size:12px;font-weight:600">Transform</text>
+<text x="657" y="109" text-anchor="middle" dominant-baseline="central" style="fill:#e4e4e0;font-size:12px;font-weight:600">request</text>
+
+<line x1="704" y1="100" x2="726" y2="100" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- ServiceX backend (container) -->
+<rect x="734" y="35" width="106" height="130" rx="10" stroke-width="1" fill="#2c5f8a" stroke="#7fb3e0"/>
+<text x="787" y="58" text-anchor="middle" dominant-baseline="central" style="fill:white;font-size:13px;font-weight:700">ServiceX</text>
+<text x="787" y="76" text-anchor="middle" dominant-baseline="central" style="fill:white;font-size:13px;font-weight:700">backend</text>
+<text x="787" y="110" text-anchor="middle" dominant-baseline="central" style="fill:#bcdcf2;font-size:11px">processes &amp;</text>
+<text x="787" y="128" text-anchor="middle" dominant-baseline="central" style="fill:#bcdcf2;font-size:11px">downloads</text>
+
+<line x1="840" y1="100" x2="862" y2="100" marker-end="url(#arrow)" stroke="#3a6b96" stroke-width="1.5" fill="none"/>
+
+<!-- Files -->
+<rect x="870" y="74" width="60" height="52" rx="8" stroke-width="1" fill="#1f6f8f" stroke="#7fd0e6"/>
+<text x="900" y="100" text-anchor="middle" dominant-baseline="central" style="fill:white;font-size:13px;font-weight:600">Files</text>
+
+</svg>

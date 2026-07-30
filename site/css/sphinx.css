@@ -1,38 +1,54 @@
+/* ==========================================================================
+   Furo/Sphinx adjustments — offsets the docs layout so it clears the fixed
+   site navbar. --sx-nav-height is defined in navbar.css, which every doc set
+   loads alongside this file; the fallback keeps things sane if load order or
+   caching ever means it isn't there yet.
+   ========================================================================== */
+
 body {
     background-color: var(--color-background-primary) !important;
 }
+
 .page {
-    padding-top: 76px;
+    padding-top: var(--sx-nav-height, 76px);
 }
+
 .mobile-header {
-    top: 76px !important;
+    top: var(--sx-nav-height, 76px) !important;
 }
+
 .sidebar-sticky,
 .toc-sticky {
-    top: 76px !important;
-    height: calc(100vh - 76px) !important;
+    top: var(--sx-nav-height, 76px) !important;
+    height: calc(100vh - var(--sx-nav-height, 76px)) !important;
 }
+
 @media (max-width: 82em) {
     .toc-drawer {
-        height: calc(100vh - 76px) !important;
-        top: 76px !important;
+        top: var(--sx-nav-height, 76px) !important;
+        height: calc(100vh - var(--sx-nav-height, 76px)) !important;
     }
 }
+
 @media (max-width: 63em) {
     .sidebar-drawer {
-        height: calc(100vh - 76px) !important;
-        top: 76px !important;
+        top: var(--sx-nav-height, 76px) !important;
+        height: calc(100vh - var(--sx-nav-height, 76px)) !important;
     }
+
     .mobile-header {
         position: sticky !important;
     }
 }
+
 .content {
     padding-top: 40px;
 }
+
 .sidebar-brand {
     padding-bottom: 0px;
 }
+
 .sidebar-tree {
     margin-top: 0px;
 }

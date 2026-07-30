@@ -231,8 +231,12 @@ get_structure(
         <script>
             hljs.highlightAll();
 
-            /* ---------------- Navbar (shared across the site) ---------------- */
-            fetch('https://raw.githubusercontent.com/ssl-hep/ServiceX_Website/main/site/navbar.html')
+            /* ---------------- Navbar (shared across the site) ----------------
+               Same-origin copy, not raw.githubusercontent. The deployed
+               navbar.html always ships alongside this page, so this avoids a
+               third-party round trip, avoids serving markup from `main` that
+               may not match what is deployed, and lets local previews work. */
+            fetch('/navbar.html')
                 .then(res => res.text())
                 .then(html => {
                     document.getElementById('navbar').innerHTML = html;
